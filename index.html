@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercept Creative Test Page</title>
+    
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+
+    <script type='text/javascript'>
+
+    (function(){var g=function(g){
+    
+    this.go=function(){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)};
+    
+    this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};
+    
+    try{(new g("https://zn1obshjbtvlyz394-qedxstatic4fra1.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_1obSHJbtVlyZ394")).start()}catch(i){}})();
+    
+    </script><div id='ZN_1obSHJbtVlyZ394'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-main: #fef7f4;
+            --bg-white: #ffffff;
+            --bg-soft: #fff5f0;
+            --border: #f0e6e2;
+            --border-hover: #e8d5cc;
+            --text-primary: #5c4a42;
+            --text-secondary: #8b7b74;
+            --text-muted: #b5a9a4;
+            
+            /* Cute pastel colors for creatives */
+            --creative-1: #ff8fab;
+            --creative-1-soft: #fff0f3;
+            --creative-2: #a388ee;
+            --creative-2-soft: #f3efff;
+            --creative-3: #60c5e8;
+            --creative-3-soft: #eaf8fc;
+            --creative-4: #7ed687;
+            --creative-4-soft: #eefcf0;
+            --creative-5: #ffb366;
+            --creative-5-soft: #fff6eb;
+            --creative-6: #ff7eb3;
+            --creative-6-soft: #fff0f6;
+            
+            /* Subtab colors */
+            --style-a: #ffc8dd;
+            --style-b: #bde0fe;
+            --style-c: #caffbf;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Cute decorative background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 143, 171, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(163, 136, 238, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(96, 197, 232, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Floating shapes decoration */
+        .decoration {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .decoration-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--creative-1-soft), var(--creative-2-soft));
+            top: -100px;
+            right: -100px;
+        }
+        
+        .decoration-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--creative-3-soft), var(--creative-4-soft));
+            bottom: 10%;
+            left: -50px;
+        }
+        
+        .decoration-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--creative-5-soft), var(--creative-6-soft));
+            top: 40%;
+            right: 5%;
+        }
+        
+        header {
+            padding: 1.5rem 2rem;
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+        
+        .zone-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--creative-4);
+            background: var(--creative-4-soft);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 2px solid rgba(126, 214, 135, 0.3);
+        }
+        
+        .zone-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--creative-4);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-title span {
+            background: linear-gradient(135deg, var(--creative-1), var(--creative-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Main Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tab-btn {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            padding: 0.875rem 1.5rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tab-btn:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .tab-btn.active {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-btn[data-tab="creative-1"].active { background: var(--creative-1); border-color: var(--creative-1); }
+        .tab-btn[data-tab="creative-2"].active { background: var(--creative-2); border-color: var(--creative-2); }
+        .tab-btn[data-tab="creative-3"].active { background: var(--creative-3); border-color: var(--creative-3); }
+       
+        
+        .tab-emoji {
+            font-size: 1.1rem;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeSlideIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Creative Panel */
+        .creative-panel {
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        
+        .creative-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .creative-title-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .creative-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-secondary);
+        }
+        
+        [data-creative="1"] .creative-icon { background: var(--creative-1-soft); }
+        [data-creative="2"] .creative-icon { background: var(--creative-2-soft); }
+        [data-creative="3"] .creative-icon { background: var(--creative-3-soft); }
+        [data-creative="4"] .creative-icon { background: var(--creative-4-soft); }
+        [data-creative="5"] .creative-icon { background: var(--creative-5-soft); }
+        [data-creative="6"] .creative-icon { background: var(--creative-6-soft); }
+        
+        .creative-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        [data-creative="1"] .creative-title { color: var(--creative-1); }
+        [data-creative="2"] .creative-title { color: var(--creative-2); }
+        [data-creative="3"] .creative-title { color: var(--creative-3); }
+        [data-creative="4"] .creative-title { color: var(--creative-4); }
+        [data-creative="5"] .creative-title { color: var(--creative-5); }
+        [data-creative="6"] .creative-title { color: var(--creative-6); }
+        
+        .url-badge {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            background: var(--bg-soft);
+            padding: 0.625rem 1rem;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            border: 1px dashed var(--border);
+        }
+        
+        .url-badge code {
+            color: var(--creative-3);
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+        
+        /* Subtab Navigation */
+        .subtab-nav {
+            display: flex;
+            gap: 0.375rem;
+            padding: 1rem 2rem;
+            background: var(--bg-soft);
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        
+        .subtab-nav::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .subtab-nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .subtab-nav::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+        
+        .subtab-nav::-webkit-scrollbar-thumb:hover {
+            background: var(--border-hover);
+        }
+        
+        .subtab-btn {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.625rem 1.25rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        
+        .subtab-btn:hover {
+            border-color: var(--border-hover);
+        }
+        
+        .subtab-btn.active {
+            background: var(--text-primary);
+            border-color: var(--text-primary);
+            color: white;
+        }
+        
+        /* Subtab Content */
+        .subtab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.2s ease;
+        }
+        
+        .subtab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .interaction-card {
+            background: var(--bg-soft);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        
+        .interaction-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .interaction-card .emoji-label {
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }
+        
+        input.form-input {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            padding: 0.875rem 1rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            width: 100%;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        input.form-input:focus {
+            outline: none;
+            border-color: var(--creative-3);
+        }
+        
+        input.form-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        button.action-btn {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .action-btn.primary {
+            background: var(--text-primary);
+            color: white;
+        }
+        
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(92, 74, 66, 0.2);
+        }
+        
+        .action-btn.secondary {
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            color: var(--text-secondary);
+        }
+        
+        .action-btn.secondary:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+        
+        /* Colored buttons per creative */
+        [data-creative="1"] .action-btn.primary { background: var(--creative-1); }
+        [data-creative="2"] .action-btn.primary { background: var(--creative-2); }
+        [data-creative="3"] .action-btn.primary { background: var(--creative-3); }
+        [data-creative="4"] .action-btn.primary { background: var(--creative-4); color: var(--text-primary); }
+        [data-creative="5"] .action-btn.primary { background: var(--creative-5); color: var(--text-primary); }
+        [data-creative="6"] .action-btn.primary { background: var(--creative-6); }
+        
+        .info-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        
+        .info-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            padding: 0.625rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-list .key {
+            color: var(--text-secondary);
+        }
+        
+        .info-list .val {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        /* Embedded feedback container */
+        .embedded-container {
+            background: var(--bg-white);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        
+        .embedded-container h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        #embedded-feedback,
+        #embedded-feedback-thumbs,
+        #embedded-feedback-stars,
+        #embedded-feedback-faces {
+            min-height: 150px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        #embedded-feedback:empty::before,
+        #embedded-feedback-thumbs:empty::before,
+        #embedded-feedback-stars:empty::before,
+        #embedded-feedback-faces:empty::before {
+            content: 'Embedded intercept will appear here';
+        }
+        
+        /* Details table */
+        .info-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .details-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .details-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .details-table th {
+            text-align: left;
+            padding: 0.75rem 1rem 0.75rem 0;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            width: 140px;
+            vertical-align: top;
+        }
+        
+        .details-table td {
+            padding: 0.75rem 0;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+        
+        .details-table .url-input,
+        .details-table .notes-input {
+            margin-bottom: 0;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8125rem;
+        }
+        
+        .note {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: var(--creative-5-soft);
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--creative-5);
+        }
+        
+        /* URL Display */
+        .url-display {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 50;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .url-display .current-url {
+            color: var(--creative-2);
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.75rem;
+            max-width: 350px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        footer a {
+            color: var(--creative-2);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .creative-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .url-display {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    <div class="decoration decoration-3"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                Intercept Tester
+            </div>
+            <div class="zone-badge"><span class="zone-indicator"></span>Zone Active</div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Creative <span>Test Pages</span></h1>
+            <p class="page-subtitle">Each tab has unique URL targeting. Click a tab, then choose a style to test different intercept variations!</p>
+        </div>
+        
+        <nav class="tab-nav" role="tablist">
+            <button class="tab-btn active" data-tab="creative-1" role="tab">Responsive Dialog</button>
+            <button class="tab-btn" data-tab="creative-2" role="tab">Feedback Button</button>
+            <button class="tab-btn" data-tab="creative-3" role="tab">Templated Embedded Feedback</button>
+        </nav>
+        
+        <!-- Responsive Dialog -->
+        <div class="tab-content active" id="creative-1" data-creative="1" role="tabpanel">
+            <div class="creative-panel">
+                <div class="creative-header">
+                    <div class="creative-title-area">
+                        <div class="creative-icon">1</div>
+                        <h2 class="creative-title">Responsive Dialog</h2>
+                    </div>
+                    <div class="url-badge">Target: <code>?tab=creative-1</code></div>
+                </div>
+                <nav class="subtab-nav">
+                    <button class="subtab-btn active" data-subtab="Default">Default</button>
+                    <button class="subtab-btn" data-subtab="Embedded Window">Embedded Window</button>
+                    <button class="subtab-btn" data-subtab="Slide In">Slide In, 5 Second Delay</button>
+                    <button class="subtab-btn" data-subtab="Fade In">Fade In, 5 Second Delay</button>
+                    <button class="subtab-btn" data-subtab="Close Button">Close Button</button>
+                    <button class="subtab-btn" data-subtab="On Exit Intent">On Exit Intent</button>
+                </nav>
+                <div class="subtab-content active" data-subtab-content="Default">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>New Window</td></tr>
+                                <tr><th>Close Icon</th><td>No</td></tr>
+                                <tr><th>Display Delay</th><td>None</td></tr>
+                                <tr><th>Animation</th><td>Fade In (Light Background)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Load</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Embedded Window">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>Embedded Window</td></tr>
+                                <tr><th>Close Icon</th><td>No</td></tr>
+                                <tr><th>Display Delay</th><td>None</td></tr>
+                                <tr><th>Animation</th><td>Fade In (Light Background)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Load</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Slide In">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>New Window</td></tr>
+                                <tr><th>Close Icon</th><td>No</td></tr>
+                                <tr><th>Display Delay</th><td>5 seconds</td></tr>
+                                <tr><th>Animation</th><td>Slide In (from left)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Load</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Fade In">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>New Window</td></tr>
+                                <tr><th>Close Icon</th><td>No</td></tr>
+                                <tr><th>Display Delay</th><td>5 seconds</td></tr>
+                                <tr><th>Animation</th><td>Fade In (Medium Background)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Load</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Close Button">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>New Window</td></tr>
+                                <tr><th>Close Icon</th><td>Yes (to dismiss intercept)</td></tr>
+                                <tr><th>Display Delay</th><td>None</td></tr>
+                                <tr><th>Animation</th><td>Fade In (Light Background)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Load</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="On Exit Intent">
+                    <div class="content-grid">
+                        <div class="info-card full-width">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Window Type</th><td>New Window</td></tr>
+                                <tr><th>Close Icon</th><td>No</td></tr>
+                                <tr><th>Display Delay</th><td>None</td></tr>
+                                <tr><th>Animation</th><td>Fade In (Light Background)</td></tr>
+                                <tr><th>Buttons</th><td>2</td></tr>
+                                <tr><th>Aria Labels</th><td>Empty</td></tr>
+                                <tr><th>Image Alt Text</th><td>"Qualtrics Logo"</td></tr>
+                                <tr><th>Display Trigger</th><td>Page Exit</td></tr>
+                            </table>
+                            <p class="note">* Hover on another tab for intercept to display</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Creative 2 -->
+        <div class="tab-content" id="creative-2" data-creative="2" role="tabpanel">
+            <div class="creative-panel">
+                <div class="creative-header">
+                    <div class="creative-title-area">
+                        <div class="creative-icon">2</div>
+                        <h2 class="creative-title">Creative 2</h2>
+                    </div>
+                    <div class="url-badge">Target: <code>?tab=creative-2</code></div>
+                </div>
+                <nav class="subtab-nav">
+                    <button class="subtab-btn active" data-subtab="Default">Default</button>
+                    <button class="subtab-btn" data-subtab="Overlay">Overlay</button>
+                    <button class="subtab-btn" data-subtab="New Window">New Window</button>
+                    <button class="subtab-btn" data-subtab="Custom Button">Custom Button</button>
+                    <button class="subtab-btn" data-subtab="Close Button">Close Button</button>
+                </nav>
+                <div class="subtab-content active" data-subtab-content="Default">
+                    <div class="content-grid">
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Overlay">
+                    <div class="content-grid">
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="New Window">
+                    <div class="content-grid">
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Custom Button">
+                    <div class="content-grid">
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Close Button">
+                    <div class="content-grid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Creative 3 - Embedded Feedback -->
+        <div class="tab-content" id="creative-3" data-creative="3" role="tabpanel">
+            <div class="creative-panel">
+                <div class="creative-header">
+                    <div class="creative-title-area">
+                        <div class="creative-icon">3</div>
+                        <h2 class="creative-title">Templated Embedded Feedback</h2>
+                    </div>
+                </div>
+                <nav class="subtab-nav">
+                    <button class="subtab-btn active" data-subtab="Default">Default</button>
+                    <button class="subtab-btn" data-subtab="Thumbs">Thumbs</button>
+                    <button class="subtab-btn" data-subtab="Stars">Stars</button>
+                    <button class="subtab-btn" data-subtab="Faces">Faces</button>
+                </nav>
+                <div class="subtab-content active" data-subtab-content="Default">
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Format</th><td>Yes/No Response</td></tr>
+                                <tr><th>Style</th><td>Yes/No</td></tr>
+                                <tr><th>Layout</th><td>Side by Side</td></tr>
+                                <tr><th>Thank You Message</th><td>Yes</td></tr>
+                                <tr><th>Follow Up Question</th><td>Yes (Only if "No" is selected)</td></tr>
+                            </table>
+                        </div>
+                        <div class="embedded-container">
+                            <h4>Embedded Feedback Area</h4>
+                            <div id="embedded-feedback">
+                                <!-- Embedded intercept will render here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Thumbs">
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Format</th><td>Yes/No Response</td></tr>
+                                <tr><th>Style</th><td>Thumbs</td></tr>
+                                <tr><th>Layout</th><td>Side by Side</td></tr>
+                                <tr><th>Thank You Message</th><td>Yes</td></tr>
+                                <tr><th>Follow Up Question</th><td>Yes (Only if "Thumbs Down" is selected)</td></tr>
+                            </table>
+                        </div>
+                        <div class="embedded-container">
+                            <h4>Embedded Feedback Area</h4>
+                            <div id="embedded-feedback-thumbs">
+                                <!-- Embedded intercept will render here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Stars">
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Format</th><td>5 Point Rating</td></tr>
+                                <tr><th>Style</th><td>Stars</td></tr>
+                                <tr><th>Layout</th><td>Side by Side</td></tr>
+                                <tr><th>Thank You Message</th><td>Yes</td></tr>
+                                <tr><th>Follow Up Question</th><td>Yes (Only if 3 stars or below is selected)</td></tr>
+                            </table>
+                        </div>
+                        <div class="embedded-container">
+                            <h4>Embedded Feedback Area</h4>
+                            <div id="embedded-feedback-stars">
+                                <!-- Embedded intercept will render here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subtab-content" data-subtab-content="Faces">
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h4>Creative Info</h4>
+                            <table class="details-table">
+                                <tr><th>Format</th><td>5 Point Rating</td></tr>
+                                <tr><th>Style</th><td>Faces</td></tr>
+                                <tr><th>Layout</th><td>Side by Side</td></tr>
+                                <tr><th>Thank You Message</th><td>Yes</td></tr>
+                                <tr><th>Follow Up Question</th><td>Yes (Only if 2 Faces or below is selected)</td></tr>
+                            </table>
+                        </div>
+                        <div class="embedded-container">
+                            <h4>Embedded Feedback Area</h4>
+                            <div id="embedded-feedback-faces">
+                                <!-- Embedded intercept will render here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    
+    <footer>
+        <p>Intercept Creative Test Page</p>
+    </footer>
+    
+    <script>
+        // Main tab switching
+        const mainTabs = document.querySelectorAll('.tab-btn');
+        const mainContents = document.querySelectorAll('.tab-content');
+        function updateUrl(tab, style) {
+            const params = new URLSearchParams();
+            params.set('tab', tab);
+            if (style) params.set('style', style);
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
+            window.history.pushState({ tab, style }, '', newUrl);
+        }
+        
+        function activateMainTab(tabId) {
+            mainTabs.forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.tab === tabId);
+            });
+            
+            mainContents.forEach(content => {
+                content.classList.toggle('active', content.id === tabId);
+            });
+            
+            // Get active subtab for this tab
+            const activePanel = document.getElementById(tabId);
+            const activeSubtab = activePanel.querySelector('.subtab-btn.active');
+            const style = activeSubtab ? activeSubtab.dataset.subtab : 'style-a';
+            
+            updateUrl(tabId, style);
+        }
+        
+        function activateSubtab(panel, subtabId) {
+            const subtabBtns = panel.querySelectorAll('.subtab-btn');
+            const subtabContents = panel.querySelectorAll('.subtab-content');
+            
+            subtabBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.subtab === subtabId);
+            });
+            
+            subtabContents.forEach(content => {
+                content.classList.toggle('active', content.dataset.subtabContent === subtabId);
+            });
+            
+            // Update URL
+            const mainTab = panel.id;
+            updateUrl(mainTab, subtabId);
+        }
+        
+        // Main tab click handlers - reload page on tab change
+        mainTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const newUrl = `${window.location.pathname}?tab=${tab.dataset.tab}`;
+                window.location.href = newUrl;
+            });
+        });
+        
+        // Subtab click handlers - reload page on subtab change
+        document.querySelectorAll('.subtab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const panel = btn.closest('.tab-content');
+                const mainTab = panel.id;
+                const newUrl = `${window.location.pathname}?tab=${mainTab}&style=${encodeURIComponent(btn.dataset.subtab)}`;
+                window.location.href = newUrl;
+            });
+        });
+        
+        // Handle browser back/forward
+        window.addEventListener('popstate', (e) => {
+            if (e.state) {
+                activateMainTab(e.state.tab);
+                if (e.state.style) {
+                    const panel = document.getElementById(e.state.tab);
+                    activateSubtab(panel, e.state.style);
+                }
+            }
+        });
+        
+        // Initialize from URL
+        function initFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const tab = params.get('tab') || 'creative-1';
+            const style = params.get('style') || 'Default';
+            
+            activateMainTab(tab);
+            const panel = document.getElementById(tab);
+            if (panel) {
+                activateSubtab(panel, style);
+            }
+        }
+        
+        initFromUrl();
+    </script>
+</body>
+</html>
