@@ -31,16 +31,17 @@
         }
         
         :root {
+            /* Surfaces */
             --bg-main: #fef7f4;
             --bg-white: #ffffff;
             --bg-soft: #fff5f0;
             --border: #f0e6e2;
             --border-hover: #e8d5cc;
-            --text-primary: #5c4a42;
-            --text-secondary: #8b7b74;
-            --text-muted: #b5a9a4;
-            
-            /* Cute pastel colors for creatives */
+            /* Body text: meet WCAG 2 AA 4.5:1 vs cream / soft surfaces */
+            --text-primary: #3d3029;
+            --text-secondary: #5d514b;
+            --text-muted: #6a5c54;
+            /* Pastel fills (decoration / chips only — pair with dark text, not these alone for text) */
             --creative-1: #ff8fab;
             --creative-1-soft: #fff0f3;
             --creative-2: #a388ee;
@@ -53,11 +54,27 @@
             --creative-5-soft: #fff6eb;
             --creative-6: #ff7eb3;
             --creative-6-soft: #fff0f6;
-            
+            /* Accessible text / control colors on white or light fills (≥4.5:1 normal, ≥3:1 large where used) */
+            --creative-1-text: #9c2758;
+            --creative-2-text: #5e35b1;
+            --creative-3-text: #0277bd;
+            --creative-4-text: #2e7d32;
+            --creative-5-text: #bf360c;
+            --creative-6-text: #c2185b;
+            /* Solid fills for white text (tabs / primary buttons) */
+            --creative-1-strong: #ad1457;
+            --creative-2-strong: #6a1b9a;
+            --creative-3-strong: #0277bd;
+            --creative-4-strong: #2e7d32;
+            --creative-5-strong: #bf360c;
+            --creative-6-strong: #c2185b;
             /* Subtab colors */
             --style-a: #ffc8dd;
             --style-b: #bde0fe;
             --style-c: #caffbf;
+            /* Links & code on light panels */
+            --link-on-light: #5e35b1;
+            --code-on-light: #1565c0;
         }
         
         body {
@@ -153,17 +170,17 @@
             gap: 0.5rem;
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--creative-4);
+            color: var(--text-primary);
             background: var(--creative-4-soft);
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            border: 2px solid rgba(126, 214, 135, 0.3);
+            border: 2px solid rgba(46, 125, 50, 0.45);
         }
         
         .zone-indicator {
             width: 8px;
             height: 8px;
-            background: var(--creative-4);
+            background: var(--creative-4-strong);
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
@@ -191,11 +208,10 @@
             margin-bottom: 0.5rem;
         }
         
+        /* Solid accessible accent (gradient text fails WCAG when stops are light) */
         .page-title span {
-            background: linear-gradient(135deg, var(--creative-1), var(--creative-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--creative-2-text);
+            -webkit-text-fill-color: currentColor;
         }
         
         .page-subtitle {
@@ -237,14 +253,23 @@
         }
         
         .tab-btn.active {
-            color: white;
+            color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .tab-btn[data-tab="creative-1"].active { background: var(--creative-1); border-color: var(--creative-1); }
-        .tab-btn[data-tab="creative-2"].active { background: var(--creative-2); border-color: var(--creative-2); }
-        .tab-btn[data-tab="creative-3"].active { background: var(--creative-3); border-color: var(--creative-3); }
+        .tab-btn[data-tab="creative-1"].active {
+            background: var(--creative-1-strong);
+            border-color: var(--creative-1-strong);
+        }
+        .tab-btn[data-tab="creative-2"].active {
+            background: var(--creative-2-strong);
+            border-color: var(--creative-2-strong);
+        }
+        .tab-btn[data-tab="creative-3"].active {
+            background: var(--creative-3-strong);
+            border-color: var(--creative-3-strong);
+        }
        
         
         .tab-emoji {
@@ -315,12 +340,12 @@
             font-weight: 800;
         }
         
-        [data-creative="1"] .creative-title { color: var(--creative-1); }
-        [data-creative="2"] .creative-title { color: var(--creative-2); }
-        [data-creative="3"] .creative-title { color: var(--creative-3); }
-        [data-creative="4"] .creative-title { color: var(--creative-4); }
-        [data-creative="5"] .creative-title { color: var(--creative-5); }
-        [data-creative="6"] .creative-title { color: var(--creative-6); }
+        [data-creative="1"] .creative-title { color: var(--creative-1-text); }
+        [data-creative="2"] .creative-title { color: var(--creative-2-text); }
+        [data-creative="3"] .creative-title { color: var(--creative-3-text); }
+        [data-creative="4"] .creative-title { color: var(--creative-4-text); }
+        [data-creative="5"] .creative-title { color: var(--creative-5-text); }
+        [data-creative="6"] .creative-title { color: var(--creative-6-text); }
         
         .url-badge {
             font-size: 0.8125rem;
@@ -333,7 +358,7 @@
         }
         
         .url-badge code {
-            color: var(--creative-3);
+            color: var(--code-on-light);
             font-family: 'SF Mono', Monaco, monospace;
         }
         
@@ -452,7 +477,8 @@
         
         input.form-input:focus {
             outline: none;
-            border-color: var(--creative-3);
+            border-color: var(--creative-3-strong);
+            box-shadow: 0 0 0 2px rgba(2, 119, 189, 0.25);
         }
         
         input.form-input::placeholder {
@@ -494,12 +520,30 @@
         }
         
         /* Colored buttons per creative */
-        [data-creative="1"] .action-btn.primary { background: var(--creative-1); }
-        [data-creative="2"] .action-btn.primary { background: var(--creative-2); }
-        [data-creative="3"] .action-btn.primary { background: var(--creative-3); }
-        [data-creative="4"] .action-btn.primary { background: var(--creative-4); color: var(--text-primary); }
-        [data-creative="5"] .action-btn.primary { background: var(--creative-5); color: var(--text-primary); }
-        [data-creative="6"] .action-btn.primary { background: var(--creative-6); }
+        [data-creative="1"] .action-btn.primary {
+            background: var(--creative-1-strong);
+            color: #ffffff;
+        }
+        [data-creative="2"] .action-btn.primary {
+            background: var(--creative-2-strong);
+            color: #ffffff;
+        }
+        [data-creative="3"] .action-btn.primary {
+            background: var(--creative-3-strong);
+            color: #ffffff;
+        }
+        [data-creative="4"] .action-btn.primary {
+            background: var(--creative-4-strong);
+            color: #ffffff;
+        }
+        [data-creative="5"] .action-btn.primary {
+            background: var(--creative-5-strong);
+            color: #ffffff;
+        }
+        [data-creative="6"] .action-btn.primary {
+            background: var(--creative-6-strong);
+            color: #ffffff;
+        }
         
         .info-card {
             background: var(--bg-white);
@@ -653,7 +697,7 @@
         }
         
         .url-display .current-url {
-            color: var(--creative-2);
+            color: var(--link-on-light);
             font-family: 'SF Mono', Monaco, monospace;
             font-size: 0.75rem;
             max-width: 350px;
@@ -671,8 +715,13 @@
         }
         
         footer a {
-            color: var(--creative-2);
-            text-decoration: none;
+            color: var(--link-on-light);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        footer a:hover {
+            color: var(--creative-2-text);
         }
         
         @media (max-width: 768px) {
